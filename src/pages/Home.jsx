@@ -1,20 +1,22 @@
-import React from 'react'; 
-import Movies from '../components/Movies';
-import Popular from '../components/Popular';
-import Trending from '../components/Trending';
+import React from 'react'
+import Banners from '../Component/Banners';
+import Collections from '../Component/Collections';
+import Contact from '../Component/Contact';
+import Journal from '../Component/Journal';
 
 
 
 const Home = () => {
   return (
     <>
-      <Movies/>
-      <Popular/>
-      <Trending/>   
+     <Banners/>
+      <Collections/>
+      <Contact/>
+      <Journal/>
+    
     </>
+ 
   )
-    
-    
 }
 
 export default Home

@@ -1,198 +1,38 @@
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chivo&family=Source+Sans+Pro:ital,wght@0,300;0,600;1,600&family=Vollkorn:wght@400;500&display=swap');
 
 *{
   margin: o;
   padding: 0;
   box-sizing: border-box;
 }
-nav{
+
+.wrapper{
   display: flex;
-  padding: 0 120px;
-  background:#002244; 
-  color: white;
-  justify-content: space-between;
-  align-items: center;
-  
-  
-  
-}
-.banner{
-  background-image:linear-gradient(to left, #3498dbc4, #002244), url('https://www.themoviedb.org/t/p/w1920_and_h427_multi_faces/v3B1kiCNun7JLHDsMpdWf62vQFI.jpg');
-  height: 330px;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  color: white;
-  font-family: 'Source Sans Pro', Arial, sans-serif;
-  padding: 70px 50px 20px 50px;
-  line-height: 0;
-  margin: 0 65px;
-  
-  
-}
-.banner h1{
-  font-size: 50px;
-  font-weight: 600;
-  padding-bottom: 5px;
-
-  
-}
-.banner h3{
-  font-size: 30px;
-  font-weight: 600;
+  flex-wrap: wrap;
+  gap: 40px;
   
 }
 
-.logo{
+
+.wrappers{
   display: flex;
-  align-items: center;  
+  flex-wrap: wrap;
+  gap: 40px;
+  padding-top: 40px;
   
 }
-
-.logo h2{
-  padding-right: 20px;
-  font-size: 1.5rem;
-  color:#83e78d;
-  font-style: oblique;
-  font-weight: 600;
-  cursor: pointer;
-  
-
-}
-ul{
-  display: flex; 
-  align-items: center;
-  
+p{
+  opacity: 0.7;
 }
 
-li{
-  list-style: none;
-  padding: 0 17px;
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
-  
-}
-.list{
-  list-style: none;
-  padding: 0 17px;
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
-  text-decoration: none;
-  color: white;  
-}
+@media only screen and (max-width:390px){
+  .wrapper{
+    gap: 25px;
+    
+  }
 
-.bi{ 
-  padding-top:10px;
-  font-size: 25px;
-  color: #83e78d;
-  
-}
-
-
-li span{
-  border: 1px solid white;
-  padding: 4px;
-  border-radius: 5px;
-}
-
-
-
-form{
-  line-height: 3;
-  position: relative;
-  
-}
-.btn{
-  width: 100%;
-  padding: 12px;
-  font-size: 18px;
-  border-radius: 22px;
-  border: none;
-  margin-top: 40px;
-  outline: none;
-  
-
-  
-}
-.bnt{
-  width: 10%;
-  padding: 15px;
-  font-size: 14px;
-  border-radius: 22px;
-  background:linear-gradient(to left, #3498dbc4, #92FE9D);
-  color: white;
-  border: none;
-  position: absolute;
-  right: 1px;
-  top: 40px;
-  
-}
-.cards{
-  width: 350px;
-  height: 430px; 
-  
-}
-
-.card{
-  width: 170px;
-  height: 300px;
-  overflow: hidden;
-  border-radius: 1rem;
-  
-  
-}
-.card img{ 
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-   
-}
-
-.card_cont h4{  
-  font-size: 15px;  
-  
-}
-.card_cont p{  
-  font-size: 13px; 
-  color: rgba(48, 44, 44, 0.89);  
-}
-
-.movies{
-  margin: 20px 100px;
-
-}
-
-.option{
-  display: flex;
-  align-items: center;
-  padding-bottom: 20px;
-  
-}
-
-.option h2{
-  padding-right: 20px;
-  font-size: 26px;
-  
-}
-.options{
-  display: flex;
-  border: 1px solid black;
-  padding: 0 16px;
-  border-radius: 32px;
-  font-size: 13px;
-  line-height: 0;
-  cursor: pointer;
-  
-}
-.options h4{
-  padding: 0 13px;
-
-}
-.search_card{
-  display: flex;
-  padding: 30px 120px;
+  .wrappers{
+    gap: 25px;
+    padding-top: 20px;
+  }
 }
