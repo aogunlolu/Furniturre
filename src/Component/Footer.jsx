@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from "styled-components";
 import {FaPinterest, FaFacebookF, FaInstagram, FaTwitter} from "react-icons/fa"
+// import { mobile } from '../responsive';
+// import { mobile414px } from '../responsive';
 
 function Footer() {
   return (
@@ -65,12 +67,16 @@ const Footers = styled.div`
   height: 312px;
   
 
+  
+  
   h4{
     font-family: 'Chivo';
     font-weight: 400;
     font-size: 20px;
     color: rgba(219, 124, 10, 1);
     line-height: 0;
+  
+
 }
 
 li{
@@ -82,6 +88,7 @@ li{
     opacity: 0.7;
     line-height: 2.5;
     
+    
 }
 .icon{
     display: flex;
@@ -92,11 +99,15 @@ li{
     color: white;
     opacity: 1;
     font-size: 20px;
+   
+    
 }
 .copyright{
     opacity: 1;
     color: white;
     line-height: 32px;
+    
+   
 }
 `
 

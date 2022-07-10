@@ -3,7 +3,8 @@ import styled from "styled-components";
 import { Splide, SplideSlide} from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
 import KingCouch from "../Assest/king-couch.jpg";
-import { mobile } from '../responsive';
+import { tablets, mobile, largeScreens, smallScreens} from '../responsive';
+
 
 
 const card =[
@@ -32,14 +33,15 @@ const Banners = () => {
           arrows: true,
           pagination: false,
           drag: "free",
-          
+          rewind: true,
+          autoScroll:{speed: 2}
           
         }}>
           {result.map((card) => {
             return(
               <SplideSlide key={card.id}>
                 <Main>
-                <img src={card.image} />
+                <img src={card.image} alt=''/>
                 <div className='card'>
                   <h1>{card.text}</h1>
                   <p>{card.content}</p>
@@ -57,6 +59,7 @@ const Banners = () => {
     <h2>Smart Solutions for Modern Living </h2>
     <p>Our mission is simple; We want to make beautiful, high quality furniture for everyday living.</p>
     </div>
+    <div className='mainWrapper'>
     <div className='section-text'data-aos="fade-right">
       <h2>New Arrivals</h2>
       <p>View All</p>
@@ -65,7 +68,7 @@ const Banners = () => {
     {card.map((props) => {
             return(
                   <Grid key={props.id}>
-                  <img src={props.image} />
+                  <img src={props.image} alt=''/>
                   <div>
                     <p>{props.tittle}</p>
                     <h4>{props.amount}</h4> 
@@ -74,8 +77,10 @@ const Banners = () => {
             )
           })}
   </div>
+  </div>
   </Section>
-  <Article> 
+  <Article>
+    <div className="articleWrapper">
     <div className='article-img'>
       <img src={KingCouch} alt="king-couch.jpg" />
     </div>  
@@ -83,12 +88,14 @@ const Banners = () => {
         <h2>2020 Winter Crafts</h2>
         <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a <br /> more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</p>
         <button>LEARN MORE</button>
-    </div>   
+    </div>
+    </div>    
   </Article>
     </>
   )
  
 }
+
 
   const Main = styled.div`
   
@@ -104,8 +111,7 @@ const Banners = () => {
     }
 
     .card{
-      position: absolute;
-      
+      position: absolute; 
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
@@ -127,7 +133,9 @@ const Banners = () => {
       font-family: Vollkorn;
       font-weight: 600;
       font-size: 72px;
-      ${mobile({fontSize: "25px"})}
+
+      ${smallScreens({fontSize: "40px"})}
+      ${tablets({fontSize: "25px"})}
     }
     p{
       font-family: Chivo;
@@ -135,7 +143,10 @@ const Banners = () => {
       font-size: 20px;
       line-height: 32px;
       padding: 0 30px;
-      ${mobile({fontSize: "12px", lineHeight: "10px", padding: "0 10px"})}
+
+
+      ${tablets({fontSize: "18px", lineHeight: "20px", padding: "0"})}
+      ${mobile({fontSize: "12px", lineHeight: "10px", padding: "0"})}
     }
     button{
       padding: 12px 20px;
@@ -147,14 +158,22 @@ const Banners = () => {
       font-family: 'Chivo';
       font-weight: 400;
       font-size: 16px;
-      ${mobile({fontSize: "12px", padding: "7px 10px"})}
+
+
+      &:hover{
+        transition: 1s ease-in-out;
+        background-color: transparent;
+        color: rgba(219, 124, 10, 1);
+      }
+
+      ${tablets({fontSize: "12px", padding: "7px 10px"})}
     }
   `; 
   const Grid = styled.div`  
   font-family: Chivo;
   color:rgba(74, 82, 83, 1);
   font-weight: 400;
-  line-height: 0;
+  line-height: 2;
   background-color: white;
   transition: all 0.5s;
   
@@ -168,7 +187,10 @@ const Banners = () => {
   height: 320px;
   overflow: hidden;
   cursor: pointer;
-  ${mobile({width: "290px", height: "240px"})}
+
+  
+  ${tablets({width: "290px", height: "240px"})};
+
 
 }
 
@@ -181,8 +203,12 @@ p{
 `
 const Section = styled.div`
 padding: 90px 104px;
-animation-name: body; 
-${mobile({padding: "20px 50px"})}
+animation-name: body;
+
+
+
+${tablets({padding: "20px 30px"})}
+
 
 .section-header{
   text-align: center;
@@ -196,79 +222,120 @@ h2{
     font-family: Vollkorn;
     font-weight: 500;
     font-size: 40px;
-    ${mobile({fontSize: "25px"})}
+
+    ${tablets({fontSize: "25px"})}
+    ${mobile({fontSize: "18px"})}
   }
   p{
     font-family: Chivo;
     font-weight: 300;
     font-size: 18px;
     line-height: 32px;
-    ${mobile({fontSize: "13px", lineHeight: "20px"})}
+
+    ${tablets({fontSize: "14px", lineHeight: "20px"})}
   }
   .section-text{
     display: flex;
+    flex-wrap: nowrap;
     justify-content: space-between;
-    padding-top: 40px;
+    padding-top:40px;
+    padding-bottom:10px;
+    text-align: center;
+    
+
+
     ${mobile({paddingTop: "20px"})}
   }
+
+
   .section-text h2{
     font-family: Vollkorn;
     font-weight: 600;
     font-size: 24px;
     color:rgba(98, 45, 8, 1);
-    ${mobile({fontSize: "18px"})}
+
+
+    ${tablets({fontSize: "18px"})}
+    ${mobile({fontSize: "14px"})}
   }
   .section-text p{
     font-family: Vollkorn;
     font-weight: 600;
     font-size: 18px;
     color:rgba(219, 124, 10, 1);
+
+
+    ${tablets({fontSize: "14px"})}
     ${mobile({fontSize: "12px"})}
   }
 `
 const Article = styled.div`
 background-color: rgba(4, 54, 61, 1);
 padding: 0 104px;
-height: 376px;
+width: 100%;
+height: 350px;
 color:#FFFFFF;
 margin:62px 0;
-position: relative;
-${mobile({padding: "0 18px", height: "250px", margin: "40px, 0"})}
+z-index: 2;
 
 
+${largeScreens({padding:"0 50px"})}
+${smallScreens({height:"320px", padding:"0 40px"})}
+${tablets({padding: "0 20px", margin: "40px, 0", height: "280px"})}
+${mobile({padding: "0 10px", height: "230px", margin: "40px, 0"})}
+
+.articleWrapper{
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  
+}
 img{
-width: 500px;
-height: 500px;
+width: 450px;
+height: 100%;
  
-${mobile({width: "150px", height: "150px"})}
+${smallScreens({width:"380px"})}
+${tablets({width:"320px"})}
+${mobile({width:"150px"})}
+
 }
 .article-img{
   position: absolute;
-  top: -62px;
-  ${mobile({top: "50px"})}
+  top: -52px;
+
+
+  ${smallScreens({top:"-29px"})}
+  ${tablets({top:"-15px"})}
+  ${mobile({top:"40px"})}
 }
 
 .article{
   padding: 40px 0;
-  position: relative;
-  padding-left: 580px;
-  line-height: 23px;
-  ${mobile({padding: "10px 0" , paddingLeft: "170px", lineHeight: "15px"})}
+  position: absolute;
+  line-height: 26px;
+  padding-left: 560px;
+
+
+  ${smallScreens({paddingLeft:"400px", lineHeight:"22px", paddingTop:"20px"})}
+  ${tablets({paddingLeft:"350px", lineHeight:"20px", paddingTop:"20px"})}
+  ${mobile({padding: "15px 0" , paddingLeft: "170px", lineHeight: "15px"})}
 }
 h2{
   font-family:Vollkorn ;
   width: 400;
   font-size: 40px;
   
-  ${mobile({fontSize: "15px"})}
+  ${smallScreens({fontSize: "30px"})}
+  ${tablets({fontSize: "18px"})}
+  ${mobile({fontSize: "12px"})}
 }
 p{
   font-family:Chivo;
   width: 400;
   font-size: 16px;
   
+  ${tablets({fontSize: "12px"})}
   ${mobile({fontSize: "10px"})}
- 
 }
 button{
     padding: 14px 80px;
@@ -283,7 +350,16 @@ button{
     margin-top: 40px;
     text-align: center;
 
-    ${mobile({fontSize: "10px", padding: "12px 20px", marginTop: "7px"})}
+    &:hover{
+        transition: 1s ease-in-out;
+        background-color: transparent;
+        color: rgba(219, 124, 10, 1);
+      }
+    
+
+    ${smallScreens({ padding: "12px 20px", marginTop: "30px"})}
+    ${tablets({fontSize: "12px", padding: "12px 20px", marginTop: "20px"})}
+    ${mobile({ padding: "10px", marginTop: "10px"})}
   }
 `
   

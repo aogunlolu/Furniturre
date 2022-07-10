@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from "styled-components";
 import ContactLayer from "../Assest/Frame 3.jpg";
-import { mobile } from '../responsive';
+// import { mobile414px } from '../responsive';
 
 
 const Contact = () => {
@@ -30,7 +30,7 @@ const Section = styled.div`
   height: 540px;
   margin: 90px 0 120px 0;
 
-  ${mobile({height: "268px", marginBottom: "80px"})}
+  
 ;
  } 
 h4{
@@ -39,7 +39,7 @@ h4{
   font-size: 32px;
   color: rgba(4, 54, 61, 1);
   
-  ${mobile({fontSize: "20px"})}
+
 }
 p{
   font-family: 'Chivo';
@@ -49,7 +49,7 @@ p{
   color:rgba(74, 82, 83, 1);
   padding-bottom: 16px;
 
-  ${mobile({fontSize: "14px", lineHeight: "15px"})}
+
 }
  .contact-form{
    background-color: rgba(234, 240, 238, 1);
@@ -57,7 +57,6 @@ p{
    height: 464px;
    text-align: center;
    padding: 40px 0;
-   ${mobile({height: "368px", margin: "0 50px", padding: "20px 0"})}
    
  }
  form{
@@ -67,7 +66,7 @@ p{
    height: 56px; 
    margin-left: 416px;
 
-   ${mobile({marginLeft: "10px", height: "20px", width: "270px"})}
+ 
  }
  input{
   padding: 16px;
@@ -75,8 +74,7 @@ p{
   background-color: white;
   border: none;
   color: rgba(74, 82, 83, 0.7);
-  
-  ${mobile({padding: "14px"})}
+
  }
   button{
       padding: 12px 20px;

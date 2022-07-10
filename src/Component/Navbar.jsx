@@ -1,69 +1,85 @@
-import React from 'react'
+import  React, {useState} from 'react'
 import styled from "styled-components";
 import FurnituresLogo from "../Assest/Furnichurrs-Logo.svg";
-import Cart from "../Assest/cart-icon.svg";
-import {BsSearch} from "react-icons/bs";
+import {BsSearch, BsCartFill} from "react-icons/bs";
 import DownArrow from "../Assest/down-arrow.svg"; 
 import {Link} from "react-router-dom";
 import {BiMenuAltRight} from "react-icons/bi";
-import { mobile } from '../responsive';
+import { tablets, mobile, largeScreens} from '../responsive';
+import Sidebar from './Sidebar';
+
+
 
 const Navbar = () => {
+
+  const [sidebar, setSideBar] = useState(false);
+
+  const showSiderBar = () => setSideBar(!sidebar);
+  
   return (
     <>
         <Nav>
           <div>
-            <Link to='/' ><img className='search-icon' src={FurnituresLogo} alt="Logo" /></Link>
-            
+            <Link to='/' ><img className='logo' src={FurnituresLogo} alt="Logo" /></Link>            
           </div>  
-            <ul>
-              <Link to='/' className='li'>HOME</Link >
-              <li>SHOP<img className='shop-drop' src={DownArrow} alt="" /><ul className='dropdown'>
-              <Link to='/sofas' className='li'>Sofas</Link >
-              <Link to='/sofas' className='li'>Chairs</Link >
-              <Link to='/sofas' className='li'>Tables</Link >
-              <Link to='/sofas' className='li'>Bedroom</Link >
-              <Link to='/sofas' className='li'>Office</Link >
+            <ul className='relate'>
+              <Link to='/' className='nav-list'>HOME</Link >
+              <div className='shop-drop'>
+              <ul>SHOP<img src={DownArrow} alt="" />
+                <li className='dropdown'>
+                  <Link to='/sofas' className='dropdown-list'>Sofas</Link >
+                  <Link to='/sofas' className='dropdown-list'>Chairs</Link >
+                  <Link to='/sofas' className='dropdown-list'>Tables</Link >
+                  <Link to='/sofas' className='dropdown-list'>Bedroom</Link >
+                  <Link to='/sofas' className='dropdown-list'>Office</Link >
+                </li>
               </ul>
-              </li>
-              <Link to='/collections' className='li'>CUSTOMIZE</Link >
-              <Link to='/journal' className='li'>JOURNAL</Link >
-              <Link to='/about' className='li'>ABOUT</Link >
-              <Link to='/contact' className='li'>CONTACT</Link>
+              </div>
+                <Link to='/collections' className='nav-list'>CUSTOMIZE</Link >
+                <Link to='/journal' className='nav-list'>JOURNAL</Link >
+                <Link to='/about' className='nav-list'>ABOUT</Link >
+                <Link to='/contact' className='nav-list'>CONTACT</Link>
             </ul>
-            <div className='menu'> 
-              <BiMenuAltRight/>
-            </div>
-            <div className='icons'>  
-              <div className='bs-search'>
-                <BsSearch/>
-              </div> 
-              <div>
-              <img className='search-icon' src={Cart} alt="cart-icon" />
-              </div> 
-            </div>   
+              <div className='menu'> 
+                <BiMenuAltRight style={{  
+                  position: "fixed",
+                  cursor: "pointer"
+                }} 
+                onClick={showSiderBar}/>
+              </div>
+              <div className='icon'>
+                <BsSearch className='icons'/>
+                <BsCartFill className='icons'/>
+              </div>
+              {sidebar && <Sidebar active={setSideBar} />}
         </Nav>
     </>
   )
 }
 const Nav = styled.div`
     display: flex;
-    justify-content: space-between;
-    padding: 20px 40px;
+    justify-content: space-around;
+    padding: 30px 0px;
     position: fixed;
     top: 0;
     z-index: 10;
     background-color:white;
     width: 100%;
     border-bottom: 0.5px solid rgba(4, 54, 61, 1);
+    overflow: hidden;
+    cursor: pointer;
 
-    ${mobile({padding: "20px 10px"})}
 
   ul{
     display: flex;
-    ${mobile({display: "none"})}
+    align-items: center;
+    color: rgba(4, 54, 61, 1);
+    
+
+    ${tablets({display:"none"})}
+    
   }
-.li{
+.nav-list{
   list-style: none;
   padding: 0 30px;
   color: rgba(4, 54, 61, 1);
@@ -71,41 +87,65 @@ const Nav = styled.div`
   font-weight: 400;
   font-size: 15px;
   text-decoration: none;
-  
+
+  ${largeScreens({padding:"0 20px"})}
   
 }
+.nav-list:hover{
+  transition: 1s ease-out;
+  color: white;
+  background-color:#010c0d ;
+  border-radius: 3px;
+}
+
 .li:active{
  color: #ff0000ea;
 
 }
-  .icons{
-    display: flex;
+.menu{
+    display: none;
+    color: rgba(4, 54, 61, 1);
+    font-size: 25px;
+    cursor: pointer;
 
+    ${tablets({display:"block"})}
+  }
+ 
+
+  .icon{
+    display: flex;
+    gap: 40px;
+    color: rgba(4, 54, 61, 1);
+    font-size: 20px;
+    align-items: center;
+      
+  }
+
+  .shop-drop ul{
+    position: relative;
+    width: 100%;
+    padding: 0 10px;
+  }
+
+  .shop-drop:hover{
+  transition: 1s ease-out;
+  color: white;
+  background-color:#010c0d ;
+  border-radius: 3px;
+  
+}
+  .shop-drop img{
+    padding-left: 10px;
     
   }
 
-  .search-icon{
-    padding: 12px 15px 0 15px;
-    ${mobile({fontSize: "5px"})}
+  .shop-drop:hover .dropdown{
+    display: grid;
+    top:35px;
+    transition: all 1s ease;
+    width: 100%;
   }
-  
-
-  .bs-search{
-    padding: 12px 15px 0 15px;
-    color: rgba(4, 54, 61, 1);
-    font-size: 25px;
-
-  }
-
-  .shop-drop{
-    padding-left: 10px;
-  }
-
-  li:hover .dropdown > .li{
-    display: block;
-    top: 0;
-  }
-
+ 
 
  li{
   list-style: none;
@@ -115,39 +155,39 @@ const Nav = styled.div`
   font-weight: 400;
   font-size: 15px;
   text-decoration: none;
-  position: relative;
   
-
+ 
+}
+.dropdown{
+  display: none;
+  position: absolute;
+  min-width: 150px;
+  height: 100%;
+  z-index: 100;
+  align-items: center;
+  background-color: white;
+  
 }
 
-  ul .dropdown{
-    display: block;
-    flex-direction: column;
-    position: absolute;
-    top: 100%;
-    background-color: white;
-    padding: 10px 0;
-  }
-  .dropdown .li{
+.dropdown-list{
   list-style: none;
+  padding: 20px 30px;
   color: rgba(4, 54, 61, 1);
   font-family: Chivo;
   font-weight: 400;
   font-size: 15px;
   text-decoration: none;
-  padding: 10px 20px;
-  display: none;
-  width: 100%;
-
-
+  background-color: white;
+ 
+  
 }
-  .menu{
-    display: none;
-    padding: 12px 15px 0 15px;
-    color: rgba(4, 54, 61, 1);
-    font-size: 25px;
-  }
-  ${mobile({display: "flex"})}
+.dropdown-list:hover{
+  background-color:#1d5d65 ;
+  color: white;
+  border-radius: 3px;
+  transition: 1s ease-out;
+}
+ 
   `;
 
 export default Navbar

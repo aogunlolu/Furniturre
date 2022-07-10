@@ -8,6 +8,8 @@ import Navbar from './Component/Navbar';
 import Footer from './Component/Footer';
 import Sofas from './Component/Sofas';
 import About from './Component/About';
+import Sidebar from './Component/Sidebar';
+import Banners from './Component/Banners';
 
 
 function App() {
@@ -21,8 +23,10 @@ function App() {
         <Route path="/sofas" element={<Sofas/>} /> 
         <Route path="/journal" element={<Journal/>} /> 
         <Route path="/about" element={<About/>} /> 
+        <Route path="/Sidebar" element={<Sidebar/>} />
+        <Route path="/banner" element={<Banners/>} />
       </Routes> 
-      <Footer/>
+      {/* <Footer/> */}
     </>
 
   );

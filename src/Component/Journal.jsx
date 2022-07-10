@@ -7,7 +7,7 @@ import Sofas from "../Assest/sofas.jpg";
 import { Splide, SplideSlide} from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
 import {BsPlayCircle} from "react-icons/bs";
-import { mobile } from '../responsive';
+// import { mobile, mobile414px } from '../responsive';
 
 const motherPlant = "https://news.fullerton.edu/app/uploads/2021/04/Gardening-Resilience-800x500.jpg"
 
@@ -29,9 +29,10 @@ const Journal = () => {
         <Splide options={{
           perPage: 2,
           arrows: false,
-          pagination: false,
+          pagination: true,
           drag: "free",
           gap: "40px"
+          
           
           
         }}>
@@ -41,7 +42,7 @@ const Journal = () => {
                 <Main>
                     <h4>{props.tittle}</h4>
                     <p>{props.date}</p>
-                    <img src={props.image} />
+                    <img src={props.image} alt='' />
                     <p>{props.details}</p>
                 </Main>       
               </SplideSlide> 
@@ -72,14 +73,14 @@ const Section = styled.div`
   border-bottom: 0.5px solid rgba(4, 54, 61, 1);
   margin-top: 70px;
 
-  ${mobile({padding: "30px 50px"})}
+  
 
   h3{
     font-family: 'Vollkorn';
     font-weight: 600;
     font-size: 40px;
     line-height: 25px;
-    ${mobile({fontSize: "25px"})}
+
   }
  
 
@@ -88,6 +89,8 @@ h2{
     font-family: 'Vollkorn';
     font-weight: 500;
     font-size: 40px;
+
+
 }
 .mother-plant{
     position: relative;
@@ -97,6 +100,7 @@ h2{
     width: 100%;
     height: 480px;
     padding-top: 32px;
+   
     
 }
 .bsplay{
@@ -111,9 +115,7 @@ color: white;
 
 `
 const Main = styled.div`
-.splide{
-  ${mobile({perPage: "1"})}
-}
+
 
  p{
     padding: 0 58px;
@@ -121,6 +123,7 @@ const Main = styled.div`
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
+    
 }
 .img{
  

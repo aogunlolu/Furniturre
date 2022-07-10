@@ -54,7 +54,7 @@ function Sofas() {
     {Cards.map((props) => {
             return(
                   <Grid key={props.id}>
-                  <img src={props.image} />
+                  <img src={props.image} alt=''/>
                   <div>
                     <p>{props.tittle}</p>
                     <h4>{props.amount}</h4> 

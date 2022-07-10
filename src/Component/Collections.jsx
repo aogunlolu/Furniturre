@@ -2,7 +2,8 @@ import React from 'react'
 import styled from 'styled-components';
 import KariShea from "../Assest/KariShea.jpg";
 import Office from "../Assest/office.jpeg";
-import { mobile } from '../responsive';
+import { tablets, mobile, largeScreens, smallScreens} from '../responsive';
+
   
 const OfficeFurniture ="https://images.pexels.com/photos/37347/office-sitting-room-executive-sitting.jpg";
 
@@ -30,7 +31,7 @@ function Collections() {
     {Card.map((props) => {
             return(
                   <Grid key={props.id}>
-                  <img src={props.image} />
+                  <img src={props.image} alt='' />
                   <h3>{props.tittle}</h3>              
                 </Grid>                    
             )
@@ -40,7 +41,7 @@ function Collections() {
     {Cards.map((props) => {
             return(
                   <Grids key={props.id}>
-                  <img src={props.image} />
+                  <img src={props.image} alt='' />
                   <h3>{props.tittle}</h3>              
                 </Grids>                    
             )
@@ -80,8 +81,9 @@ function Collections() {
 
 const Section = styled.div`
   padding: 90px 104px;
+  
+  ${tablets({padding: "90px 30px"})}
 
-  ${mobile({padding: "20px 50px"})}
   h2{
     text-align: center;
     padding-bottom: 164px 0 64px 0;
@@ -90,7 +92,10 @@ const Section = styled.div`
     font-style: normal;
     font-weight: 600;
     font-size: 48px;
-    ${mobile({fontSize: "25px"})}
+
+    ${tablets({fontSize: "25px"})}
+    ${mobile({fontSize: "18px"})}
+   
   }
 `
 const Grid = styled.div`  
@@ -110,7 +115,9 @@ const Grid = styled.div`
     overflow: hidden;
     cursor: pointer;
     
-    ${mobile({width: "290px", height: "240px"})}
+    /* ${mobile({width: "290px", height: "240px"})}; */
+
+
   }
 
   h3{
@@ -120,7 +127,7 @@ const Grid = styled.div`
     left: 50%;
     transform: translate(-50%, -50%);
     color: white;
-    ${mobile({fontSize: "20px"})}
+   
   }
 `
 const Grids = styled.div`  
@@ -139,7 +146,8 @@ const Grids = styled.div`
     height: 320px;
     overflow: hidden;
     cursor: pointer;
-    ${mobile({width: "290px", height: "240px"})}
+    /* ${mobile({width: "290px", height: "240px"})} */
+   
   }
   h3{
     font-size: 36px;
@@ -148,7 +156,7 @@ const Grids = styled.div`
     left: 50%;
     transform: translate(-50%, -50%);
     color: white;
-    ${mobile({fontSize: "20px"})}
+    
   }
 `
 const Main = styled.div`
@@ -162,7 +170,7 @@ const Main = styled.div`
   background-size: cover;
   background-repeat: no-repeat;
   
-  ${mobile({height: "300px"})}
+
 }
 
 .officedesk-details{
@@ -171,7 +179,7 @@ const Main = styled.div`
   left: 104px;
   color: #6d7711df;
   line-height: 30px;
-  ${mobile({top: "70px", left: "20px" })}
+
 
 }
 
@@ -182,7 +190,7 @@ const Main = styled.div`
   font-size: 72px;
   line-height: 0;
 
-  ${mobile({fontSize: "18px"})}
+ 
   
 }
 .officedesk-details p{
@@ -191,7 +199,7 @@ const Main = styled.div`
   font-weight: 400;
   font-size: 20px;
   opacity: 0.8;
-  ${mobile({fontSize: "12px"})}
+ 
 }
 button{
       padding: 12px 22px;
@@ -205,19 +213,23 @@ button{
       font-size: 16px;
       margin-top: 30px;
 
-      ${mobile({fontSize: "10px", marginTop: "10px", padding: "10px 5px"})}
+     
     }
   .single-chair{
     display: flex;
     gap: 60px;
     padding: 144px 104px 103px 104px;
     line-height: 32px;
-    ${mobile({display: "grid", padding: "70px 50px", lineHeight: "18px"})}
+   
+
+
+    ${mobile({display:"grid", padding:"70px 20px", lineHeight:"26px"})}
+   
   }
   .single-chair img{
     width: 500px;
     height: 500px;
-    ${mobile({width: "300px", height: "250px"})}
+   
     
   }
  
@@ -227,16 +239,20 @@ button{
     font-weight: 600;
     font-size: 40px;
     color: #485051;
-    ${mobile({fontSize: "20px"})}
+
+    ${mobile({fontSize: "18px"})}
   }
   p{
     font-size: 18px;
     opacity: 0.6;
     color: #4A5253;
-    ${mobile({fontSize: "10px"})}
+
+    ${mobile({fontSize: "12px"})}
   }
   button{
       padding: 12px 80px;
+
+
       ${mobile({padding: "10px 30px"})}
     }
 `
