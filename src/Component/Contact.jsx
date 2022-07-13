@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from "styled-components";
 import ContactLayer from "../Assest/Frame 3.jpg";
-// import { mobile414px } from '../responsive';
+import { tablets, mobile, smallScreens} from '../responsive';
 
 
 const Contact = () => {
@@ -30,15 +30,30 @@ const Section = styled.div`
   height: 540px;
   margin: 90px 0 120px 0;
 
-  
-;
+  ${tablets({height: "320px", margin:"90px 0 50px 0"})};
+  ${mobile({height: "240px"})};
+
  } 
-h4{
+
+ .contact-form{
+   background-color: rgba(234, 240, 238, 1);
+   margin:0 104px ;
+   height: 464px;
+   text-align: center;
+   padding: 40px 0;
+  
+   ${tablets({height: "350px", margin:"0 30px"})};
+   
+ }
+
+ h4{
   font-family: 'Vollkorn';
   font-weight: 600;
   font-size: 32px;
   color: rgba(4, 54, 61, 1);
   
+  ${tablets({fontSize:"25px"})};
+  ${mobile({fontSize:"18px"})};
 
 }
 p{
@@ -49,31 +64,29 @@ p{
   color:rgba(74, 82, 83, 1);
   padding-bottom: 16px;
 
+  ${tablets({fontSize:"16px"})};
+  ${mobile({fontSize:"14px"})};
 
 }
- .contact-form{
-   background-color: rgba(234, 240, 238, 1);
-   margin:0 104px ;
-   height: 464px;
-   text-align: center;
-   padding: 40px 0;
-   
- }
- form{
+form{
    display: grid;
-   flex-direction: column;
-   width: 400px;
-   height: 56px; 
-   margin-left: 416px;
+   width: 100%;
+   height: 76px;
+   padding: 0 220px;
 
- 
+   ${smallScreens({padding:" 0 100px"})};
+   ${tablets({padding:"0 50px"})};
+   ${mobile({padding:"0 10px"})};
+
  }
  input{
   padding: 16px;
   margin-bottom: 24px;
   background-color: white;
   border: none;
+  outline: none;
   color: rgba(74, 82, 83, 0.7);
+  
 
  }
   button{
@@ -87,6 +100,7 @@ p{
       font-weight: 400;
       font-size: 16px;
       margin-top: 8px;
+     
      
     }
 `

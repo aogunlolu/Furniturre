@@ -5,7 +5,7 @@ import {BsSearch, BsCartFill} from "react-icons/bs";
 import DownArrow from "../Assest/down-arrow.svg"; 
 import {Link} from "react-router-dom";
 import {BiMenuAltRight} from "react-icons/bi";
-import { tablets, mobile, largeScreens} from '../responsive';
+import { tablets, largeScreens} from '../responsive';
 import Sidebar from './Sidebar';
 
 
@@ -139,7 +139,7 @@ const Nav = styled.div`
     
   }
 
-  .shop-drop:hover .dropdown{
+  .shop-drop:hover li .dropdown{
     display: grid;
     top:35px;
     transition: all 1s ease;
@@ -179,13 +179,14 @@ const Nav = styled.div`
   text-decoration: none;
   background-color: white;
  
-  
-}
-.dropdown-list:hover{
+  &:hover{
   background-color:#1d5d65 ;
   color: white;
   border-radius: 3px;
   transition: 1s ease-out;
+  
+}
+
 }
  
   `;

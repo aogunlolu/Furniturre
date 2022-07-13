@@ -101,6 +101,7 @@ const Banners = () => {
   
     img{
       background-size: cover;
+      background-repeat: no-repeat;
       width: 100%;
       height: 568px;
       overflow: hidden;
@@ -158,6 +159,7 @@ const Banners = () => {
       font-family: 'Chivo';
       font-weight: 400;
       font-size: 16px;
+      margin-top: 20px;
 
 
       &:hover{
@@ -282,7 +284,7 @@ z-index: 2;
 ${largeScreens({padding:"0 50px"})}
 ${smallScreens({height:"320px", padding:"0 40px"})}
 ${tablets({padding: "0 20px", margin: "40px, 0", height: "280px"})}
-${mobile({padding: "0 10px", height: "230px", margin: "40px, 0"})}
+${mobile({padding: "0 10px", height: "230px", margin: "10px 0"})}
 
 .articleWrapper{
   display: flex;

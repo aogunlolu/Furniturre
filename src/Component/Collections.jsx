@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components';
 import KariShea from "../Assest/KariShea.jpg";
 import Office from "../Assest/office.jpeg";
-import { tablets, mobile, largeScreens, smallScreens} from '../responsive';
+import { tablets, mobile, smallScreens} from '../responsive';
 
   
 const OfficeFurniture ="https://images.pexels.com/photos/37347/office-sitting-room-executive-sitting.jpg";
@@ -61,7 +61,7 @@ function Collections() {
           </div>
         </div>
         <div className='single-chair' >
-          <div data-aos="fade-right">
+          <div className='schair' data-aos="fade-right">
             <img src={KariShea} alt="singleChair"/>
           </div>
           <div className='singleChair-details'data-aos="fade-left">
@@ -81,12 +81,13 @@ function Collections() {
 
 const Section = styled.div`
   padding: 90px 104px;
+  text-align: center;
   
-  ${tablets({padding: "90px 30px"})}
+  /* ${tablets({padding: "90px 30px"})} */
 
   h2{
     text-align: center;
-    padding-bottom: 164px 0 64px 0;
+    padding: 20px 0;
     color: rgba(4, 54, 61, 1);
     font-family: 'Vollkorn';
     font-style: normal;
@@ -105,8 +106,10 @@ const Grid = styled.div`
     line-height: 0;
     position: relative;
     transition: all 0.5s;
+
     :hover{
     box-shadow:15px 15px 10px 5px silver;
+    
   }
 ;
   img{
@@ -115,8 +118,8 @@ const Grid = styled.div`
     overflow: hidden;
     cursor: pointer;
     
-    /* ${mobile({width: "290px", height: "240px"})}; */
-
+    ${tablets({width: "384px", height: "320px"})};
+    ${mobile({width: "290px", height: "240px"})};
 
   }
 
@@ -127,6 +130,9 @@ const Grid = styled.div`
     left: 50%;
     transform: translate(-50%, -50%);
     color: white;
+
+    ${tablets({fontSize: "25px"})}
+    ${mobile({fontSize: "18px"})}
    
   }
 `
@@ -146,7 +152,8 @@ const Grids = styled.div`
     height: 320px;
     overflow: hidden;
     cursor: pointer;
-    /* ${mobile({width: "290px", height: "240px"})} */
+
+    ${mobile({width: "290px", height: "240px"})}
    
   }
   h3{
@@ -156,12 +163,17 @@ const Grids = styled.div`
     left: 50%;
     transform: translate(-50%, -50%);
     color: white;
+
+    ${tablets({fontSize: "25px"})}
+    ${mobile({fontSize: "18px"})}
     
   }
 `
 const Main = styled.div`
+  
 .office-desk{
   position: relative;
+  width: 100%;
 }
   .officedesk img{
   width: 100%;
@@ -170,7 +182,7 @@ const Main = styled.div`
   background-size: cover;
   background-repeat: no-repeat;
   
-
+  ${tablets({height: "340px"})};
 }
 
 .officedesk-details{
@@ -180,6 +192,7 @@ const Main = styled.div`
   color: #6d7711df;
   line-height: 30px;
 
+  ${tablets({top: "70px", left:"30px", lineHeight:"22px"})}
 
 }
 
@@ -188,9 +201,10 @@ const Main = styled.div`
   font-style: normal;
   font-weight: 600;
   font-size: 72px;
-  line-height: 0;
+  line-height: 2;
 
- 
+  ${tablets({fontSize: "28px"})}
+  ${mobile({fontSize: "18px"})}
   
 }
 .officedesk-details p{
@@ -199,6 +213,9 @@ const Main = styled.div`
   font-weight: 400;
   font-size: 20px;
   opacity: 0.8;
+
+ 
+  ${mobile({fontSize: "14px", display:"none"})}
  
 }
 button{
@@ -213,26 +230,42 @@ button{
       font-size: 16px;
       margin-top: 30px;
 
-     
+      ${mobile({padding: "10px", fontSize:"14px", width:"50%"})}
     }
   .single-chair{
     display: flex;
     gap: 60px;
     padding: 144px 104px 103px 104px;
     line-height: 32px;
+    justify-content: center;
+    align-items: center;
    
 
-
-    ${mobile({display:"grid", padding:"70px 20px", lineHeight:"26px"})}
+    ${smallScreens({padding:"70px 40px", lineHeight:"28px", gap:"30px"})}
+    ${tablets({display:"grid", padding:"70px 40px", lineHeight:"28px", gap:"30px"})}
    
   }
-  .single-chair img{
-    width: 500px;
-    height: 500px;
-   
+  .schair{
+    width: 50%;
+    text-align: center;
+
+    ${tablets({width: "100%"})};
+  }
+  .schair img{
+    width: 100%;
+    height: 100%;
     
+    
+   
+    ${tablets({width: "384px", height: "100%"})};
+    ${mobile({width: "290px", height: "100%"})};
   }
- 
+ .singleChair-details{
+  width: 50%;
+
+
+  ${tablets({width: "100%"})};
+ }
   h4{
     font-family: 'Vollkorn';
     font-style: normal;
@@ -240,6 +273,7 @@ button{
     font-size: 40px;
     color: #485051;
 
+    ${tablets({fontSize: "25px"})}
     ${mobile({fontSize: "18px"})}
   }
   p{
@@ -247,6 +281,7 @@ button{
     opacity: 0.6;
     color: #4A5253;
 
+    ${tablets({fontSize: "18px"})}
     ${mobile({fontSize: "12px"})}
   }
   button{

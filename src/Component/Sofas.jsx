@@ -5,6 +5,9 @@ import LuxuriateSet from "../Assest/Luxuriate-Set.jpg";
 import Bonny from "../Assest/Bonny.jpg";
 import TristianCollection from "../Assest/Tristian.jpg";
 import styled from "styled-components"
+import { tablets, mobile} from '../responsive';
+
+
 
 const url ="https://images.pexels.com/photos/6301174/pexels-photo-6301174.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
 
@@ -93,12 +96,16 @@ const Section = styled.div`
       font-family: Vollkorn;
       font-weight: 600;
       font-size: 40px;
+
+      ${tablets({fontSize: "25px"})}
     }
+    
 
   
     ul{
       display: flex;
       gap: 25px;
+
     }
     li{
       list-style: none;
@@ -110,6 +117,8 @@ const Section = styled.div`
 const Main = styled.div`
   padding: 90px 104px;
 
+  ${tablets({padding: "50px 40px"})}
+    
   .shop-list{
       display: flex;
       justify-content: space-between;
@@ -144,6 +153,9 @@ h4{
 }
 p{
   font-size: 22px;
+
+  ${tablets({fontSize: "18px"})}
+    
 }
  
 `;

@@ -26,7 +26,7 @@ function App() {
         <Route path="/Sidebar" element={<Sidebar/>} />
         <Route path="/banner" element={<Banners/>} />
       </Routes> 
-      {/* <Footer/> */}
+      <Footer/>
     </>
 
   );

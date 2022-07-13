@@ -7,7 +7,9 @@ import Sofas from "../Assest/sofas.jpg";
 import { Splide, SplideSlide} from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
 import {BsPlayCircle} from "react-icons/bs";
-// import { mobile, mobile414px } from '../responsive';
+import { tablets, mobile} from '../responsive';
+
+
 
 const motherPlant = "https://news.fullerton.edu/app/uploads/2021/04/Gardening-Resilience-800x500.jpg"
 
@@ -31,8 +33,11 @@ const Journal = () => {
           arrows: false,
           pagination: true,
           drag: "free",
-          gap: "40px"
-          
+          gap: "40px",
+          autoPlay:true,
+          rewind:true,
+          arrows:true,
+          interval: 5000
           
           
         }}>
@@ -73,7 +78,8 @@ const Section = styled.div`
   border-bottom: 0.5px solid rgba(4, 54, 61, 1);
   margin-top: 70px;
 
-  
+  ${tablets({padding: "25px 40px"})};
+  ${mobile({padding: "25px"})};
 
   h3{
     font-family: 'Vollkorn';
@@ -81,6 +87,7 @@ const Section = styled.div`
     font-size: 40px;
     line-height: 25px;
 
+    ${tablets({fontSize: "25px"})};
   }
  
 
@@ -90,7 +97,7 @@ h2{
     font-weight: 500;
     font-size: 40px;
 
-
+    ${tablets({fontSize: "20px"})};
 }
 .mother-plant{
     position: relative;
@@ -101,7 +108,9 @@ h2{
     height: 480px;
     padding-top: 32px;
    
-    
+  ${tablets({height: "320px"})};
+  ${mobile({height: "240px"})};
+
 }
 .bsplay{
 position: absolute;
@@ -111,6 +120,8 @@ transform: translate(-50%, -50%);
 font-size: 110px;
 color: white;
 
+
+${tablets({fontSize: "50px"})};
 }
 
 `
@@ -126,7 +137,7 @@ const Main = styled.div`
     
 }
 .img{
- 
+
 }
     
 `
