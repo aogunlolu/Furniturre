@@ -11,6 +11,7 @@ import Sidebar from './Sidebar';
 
 
 const Navbar = () => {
+  const activeStyle = { color: "#F15B2A" };
 
   const [sidebar, setSideBar] = useState(false);
 
@@ -18,43 +19,73 @@ const Navbar = () => {
   
   return (
     <>
-        <Nav>
-          <div>
-            <Link to='/' ><img className='logo' src={FurnituresLogo} alt="Logo" /></Link>            
-          </div>  
-            <ul className='relate'>
-              <Link to='/' className='nav-list'>HOME</Link >
-              <div className='shop-drop'>
-              <ul>SHOP<img src={DownArrow} alt="" />
-                <li className='dropdown'>
-                  <Link to='/sofas' className='dropdown-list'>Sofas</Link >
-                  <Link to='/sofas' className='dropdown-list'>Chairs</Link >
-                  <Link to='/sofas' className='dropdown-list'>Tables</Link >
-                  <Link to='/sofas' className='dropdown-list'>Bedroom</Link >
-                  <Link to='/sofas' className='dropdown-list'>Office</Link >
-                </li>
-              </ul>
-              </div>
-                <Link to='/collections' className='nav-list'>CUSTOMIZE</Link >
-                <Link to='/journal' className='nav-list'>JOURNAL</Link >
-                <Link to='/about' className='nav-list'>ABOUT</Link >
-                <Link to='/contact' className='nav-list'>CONTACT</Link>
+      <Nav>
+        <div>
+          <Link to="/">
+            <img className="logo" src={FurnituresLogo} alt="Logo" />
+          </Link>
+        </div>
+        <ul className="relate">
+          <Link to="/" className="nb-nav-list" activeStyle={activeStyle}>
+            HOME
+          </Link>
+          <div className="shop-drop">
+            <ul>
+              SHOP
+              <img src={DownArrow} alt="" />
+              <li className="nb-dropdown">
+                <Link to="/sofas" className="nb-dropdown-list">
+                  Sofas
+                </Link>
+                <Link to="/sofas" className="nb-dropdown-list">
+                  Chairs
+                </Link>
+                <Link to="/sofas" className="nb-dropdown-list">
+                  Tables
+                </Link>
+                <Link to="/sofas" className="nb-dropdown-list">
+                  Bedroom
+                </Link>
+                <Link to="/sofas" className="nb-dropdown-list">
+                  Office
+                </Link>
+              </li>
             </ul>
-              <div className='menu'> 
-                <BiMenuAltRight style={{  
-                  position: "fixed",
-                  cursor: "pointer"
-                }} 
-                onClick={showSiderBar}/>
-              </div>
-              <div className='icon'>
-                <BsSearch className='icons'/>
-                <BsCartFill className='icons'/>
-              </div>
-              {sidebar && <Sidebar active={setSideBar} />}
-        </Nav>
+          </div>
+          <Link
+            to="/collections"
+            className="nb-nav-list"
+            activeStyle={activeStyle}
+          >
+            CUSTOMIZE
+          </Link>
+          <Link to="/journal" className="nb-nav-list">
+            JOURNAL
+          </Link>
+          <Link to="/about" className="nb-nav-list">
+            ABOUT
+          </Link>
+          <Link to="/contact" className="nb-nav-list">
+            CONTACT
+          </Link>
+        </ul>
+        <div className="menu">
+          <BiMenuAltRight
+            style={{
+              position: "fixed",
+              cursor: "pointer",
+            }}
+            onClick={showSiderBar}
+          />
+        </div>
+        <div className="icon">
+          <BsSearch className="icons" />
+          <BsCartFill className="icons" />
+        </div>
+        {sidebar && <Sidebar active={setSideBar} />}
+      </Nav>
     </>
-  )
+  );
 }
 const Nav = styled.div`
     display: flex;
@@ -79,7 +110,7 @@ const Nav = styled.div`
     ${tablets({display:"none"})}
     
   }
-.nav-list{
+.nb-nav-list{
   list-style: none;
   padding: 0 30px;
   color: rgba(4, 54, 61, 1);
@@ -91,7 +122,7 @@ const Nav = styled.div`
   ${largeScreens({padding:"0 20px"})}
   
 }
-.nav-list:hover{
+.nb-nav-list:hover{
   transition: 1s ease-out;
   color: white;
   background-color:#010c0d ;
@@ -139,7 +170,7 @@ const Nav = styled.div`
     
   }
 
-  .shop-drop:hover li .dropdown{
+  .shop-drop:hover li .nb-dropdown{
     display: grid;
     top:35px;
     transition: all 1s ease;
@@ -147,7 +178,7 @@ const Nav = styled.div`
   }
  
 
- li{
+ li .nb-dropdown{
   list-style: none;
   padding: 0 30px;
   color: rgba(4, 54, 61, 1);
@@ -158,7 +189,7 @@ const Nav = styled.div`
   
  
 }
-.dropdown{
+.nb-dropdown{
   display: none;
   position: absolute;
   min-width: 150px;
@@ -169,7 +200,7 @@ const Nav = styled.div`
   
 }
 
-.dropdown-list{
+.nb-dropdown-list{
   list-style: none;
   padding: 20px 30px;
   color: rgba(4, 54, 61, 1);

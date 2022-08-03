@@ -53,7 +53,7 @@ function Collections() {
           <div className='officedesk' >
               <img src={OfficeFurniture} alt="office-desk" />
           </div>
-          <div className='officedesk-details' data-aos="fade-up">
+          <div className='officedesk-details' >
             <h3>Comfort = Productivity</h3>
             <p>Studies show that comfortable employees
               are happier and <br /> more efficient at work.</p>
@@ -193,7 +193,7 @@ const Main = styled.div`
   line-height: 30px;
 
   ${tablets({top: "70px", left:"30px", lineHeight:"22px"})}
-
+  ${mobile({padding:"10px", alignItems: "center"})}
 }
 
 .officedesk-details h3{
@@ -203,7 +203,8 @@ const Main = styled.div`
   font-size: 72px;
   line-height: 2;
 
-  ${tablets({fontSize: "28px"})}
+  ${smallScreens({fontSize: "50px"})}
+  ${tablets({fontSize: "24px"})}
   ${mobile({fontSize: "18px"})}
   
 }
@@ -215,7 +216,7 @@ const Main = styled.div`
   opacity: 0.8;
 
  
-  ${mobile({fontSize: "14px", display:"none"})}
+  ${mobile({fontSize: "14px"})}
  
 }
 button{

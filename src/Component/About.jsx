@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Contact from './Contact'
+import { tablets, mobile} from "../responsive";
 
 const About = () => {
   return (
@@ -20,21 +21,27 @@ const Article = styled.div`
   border-top: 0.5px solid rgba(4, 54, 61, 1);
   border-bottom: 0.5px solid rgba(4, 54, 61, 1);
   margin-top: 70px;
-  
 
-  h1{
-    font-family: 'Vollkorn';
+  ${tablets({ padding: "40px" })};
+  ${mobile({ padding: "40px 25px" })};
+
+  h1 {
+    font-family: "Vollkorn";
     font-weight: 600;
     font-size: 40px;
     line-height: 25px;
     text-align: center;
-  } 
 
-p{
+    ${tablets({ fontSize: "25px" })};
+  }
+
+  p {
     padding-top: 20px;
-    font-family: 'Chivo';
+    font-family: "Chivo";
     font-weight: 400;
     font-size: 20px;
-}
-`
+
+    ${tablets({ fontSize: "16px" })};
+  }
+`;
 export default About
