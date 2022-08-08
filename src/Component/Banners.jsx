@@ -147,7 +147,7 @@ const Banners = () => {
 
 
       ${tablets({fontSize: "18px", lineHeight: "20px", padding: "0"})}
-      ${mobile({fontSize: "12px", lineHeight: "10px", padding: "0"})}
+      ${mobile({fontSize: "14px", lineHeight: "14px", padding: "0"})}
     }
     button{
       padding: 12px 20px;

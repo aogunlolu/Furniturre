@@ -65,7 +65,7 @@ p{
   padding-bottom: 16px;
 
   ${tablets({fontSize:"16px"})};
-  ${mobile({fontSize:"14px"})};
+  
 
 }
 form{

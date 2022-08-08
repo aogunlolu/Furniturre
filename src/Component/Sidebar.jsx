@@ -44,19 +44,6 @@ const Sidebar = ({active}) => {
   )
 }
 const Menu = styled.div`
-/* width: 50%;
-height: 100%;
-background-color: rgba(4, 54, 61, 1);
-color: white;
-padding: 40px;
-position: fixed;
-top: 0;
-right: 0;
-z-index: 100;
- */
-
-
-
 padding: 40px;
 background-color: rgba(4, 54, 61, 1);
 color: white;
@@ -114,7 +101,7 @@ const Container = styled.div`
  }
 .dropdown{
     line-height: 2;
-    position: static;
+    position: absolute;
     
     ${tablets({display:"block"})}
     
@@ -126,7 +113,7 @@ const Container = styled.div`
     ${tablets({display:"block"})}
     
 }
-.dropdown .dropdown-list{
+.dropdown:hover .dropdown-list{
    display :block ;
    width: 100%;
 

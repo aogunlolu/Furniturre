@@ -2,17 +2,15 @@ import  React, {useState} from 'react'
 import styled from "styled-components";
 import FurnituresLogo from "../Assest/Furnichurrs-Logo.svg";
 import {BsSearch, BsCartFill} from "react-icons/bs";
-import DownArrow from "../Assest/down-arrow.svg"; 
+import {IoIosArrowDown} from "react-icons/io"
 import {Link} from "react-router-dom";
 import {BiMenuAltRight} from "react-icons/bi";
 import { tablets, largeScreens} from '../responsive';
 import Sidebar from './Sidebar';
-
+import "rsuite/dist/rsuite.min.css";
 
 
 const Navbar = () => {
-  const activeStyle = { color: "#F15B2A" };
-
   const [sidebar, setSideBar] = useState(false);
 
   const showSiderBar = () => setSideBar(!sidebar);
@@ -25,62 +23,69 @@ const Navbar = () => {
             <img className="logo" src={FurnituresLogo} alt="Logo" />
           </Link>
         </div>
-        <ul className="relate">
-          <Link to="/" className="nb-nav-list" activeStyle={activeStyle}>
-            HOME
-          </Link>
-          <div className="shop-drop">
-            <ul>
-              SHOP
-              <img src={DownArrow} alt="" />
-              <li className="nb-dropdown">
-                <Link to="/sofas" className="nb-dropdown-list">
+        <ul>
+          <li>
+            <Link to="/" className="nb-nav-list">
+              HOME
+            </Link>
+          </li>
+          <li className="nb-nav-list">
+            SHOP <IoIosArrowDown className="arrow" />
+          </li>
+          <div  className="nb-nav-submenu">
+            <ul className="submenu">
+              <li>
+                <Link to="/sofas" className="submenu-list">
                   Sofas
                 </Link>
-                <Link to="/sofas" className="nb-dropdown-list">
+              </li>
+              <li>
+                <Link to="/sofas" className="submenu-list">
                   Chairs
                 </Link>
-                <Link to="/sofas" className="nb-dropdown-list">
+              </li>
+              <li>
+                <Link to="/sofas" className="submenu-list">
                   Tables
                 </Link>
-                <Link to="/sofas" className="nb-dropdown-list">
+              </li>
+              <li>
+                <Link to="/sofas" className="submenu-list">
                   Bedroom
                 </Link>
-                <Link to="/sofas" className="nb-dropdown-list">
+              </li>
+              <li>
+                <Link to="/sofas" className="submenu-list">
                   Office
                 </Link>
               </li>
             </ul>
           </div>
-          <Link
-            to="/collections"
-            className="nb-nav-list"
-            activeStyle={activeStyle}
-          >
-            CUSTOMIZE
-          </Link>
-          <Link to="/journal" className="nb-nav-list">
-            JOURNAL
-          </Link>
-          <Link to="/about" className="nb-nav-list">
-            ABOUT
-          </Link>
-          <Link to="/contact" className="nb-nav-list">
-            CONTACT
-          </Link>
+          <li>
+            <Link to="/collections" className="nb-nav-list">
+              CUSTOMIZE
+            </Link>
+          </li>
+          <li>
+            <Link to="/journal" className="nb-nav-list">
+              JOURNAL
+            </Link>
+          </li>
+          <li>
+            <Link to="/about" className="nb-nav-list">
+              ABOUT
+            </Link>
+          </li>
+          <li>
+            <Link to="/contact" className="nb-nav-list">
+              CONTACT
+            </Link>
+          </li>
         </ul>
-        <div className="menu">
-          <BiMenuAltRight
-            style={{
-              position: "fixed",
-              cursor: "pointer",
-            }}
-            onClick={showSiderBar}
-          />
-        </div>
         <div className="icon">
-          <BsSearch className="icons" />
-          <BsCartFill className="icons" />
+          <BiMenuAltRight onClick={showSiderBar} className="menu" />
+          <BsSearch />
+          <BsCartFill />
         </div>
         {sidebar && <Sidebar active={setSideBar} />}
       </Nav>
@@ -88,138 +93,112 @@ const Navbar = () => {
   );
 }
 const Nav = styled.div`
-    display: flex;
-    justify-content: space-around;
-    padding: 30px 0px;
-    position: fixed;
-    top: 0;
-    z-index: 10;
-    background-color:white;
-    width: 100%;
-    border-bottom: 0.5px solid rgba(4, 54, 61, 1);
-    overflow: hidden;
-    cursor: pointer;
+  display: flex;
+  justify-content: space-around;
+  padding: 30px 0px;
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  background-color: white;
+  width: 100%;
+  /* height: 70px; */
+  border-bottom: 0.5px solid rgba(4, 54, 61, 1);
+  overflow: hidden;
+  cursor: pointer;
+  align-items: center;
 
-
-  ul{
+  ul {
     display: flex;
     align-items: center;
     color: rgba(4, 54, 61, 1);
-    
 
-    ${tablets({display:"none"})}
-    
+    ${tablets({ display: "none" })}
   }
-.nb-nav-list{
-  list-style: none;
-  padding: 0 30px;
-  color: rgba(4, 54, 61, 1);
-  font-family: Chivo;
-  font-weight: 400;
-  font-size: 15px;
-  text-decoration: none;
-
-  ${largeScreens({padding:"0 20px"})}
-  
-}
-.nb-nav-list:hover{
-  transition: 1s ease-out;
-  color: white;
-  background-color:#010c0d ;
-  border-radius: 3px;
-}
-
-.li:active{
- color: #ff0000ea;
-
-}
-.menu{
-    display: none;
+  .nb-nav-list {
+    padding: 0 30px;
     color: rgba(4, 54, 61, 1);
-    font-size: 25px;
+    font-family: Chivo;
+    font-weight: 400;
+    font-size: 15px;
+    text-decoration: none;
+
+    ${largeScreens({ padding: "0 20px" })}
+
+    &:hover {
+      transition: 1s ease-out;
+      color: white;
+      background-color: #010c0d;
+      border-radius: 3px;
+    }
+  }
+  .arrow {
+    float: right;
+    color: rgba(4, 54, 61, 1);
+    align-items: center;
+  }
+
+  .nb-nav-list:active {
+    color: #eb0808ea;
+  }
+  li {
+    list-style: none;
+  }
+
+  .nb-nav-list:hover .submenu{
+    display: block;
+    margin-top: 15px;
+    margin-left: -15px;
+    transition: all 1s ease;
+   
+  }
+  .nb-nav-submenu {
+    position: relative;
+    top: 100%;
+    left: -100px;
+    display: none;
+  }
+  .submenu {
+    display: block;
+    width: 150px;
+    height: 100%;
+    padding: 0 10px;
+    align-items: center;
+    position: absolute;
+    z-index: 1;
+  }
+
+  .submenu-list {
+    list-style: none;
+    padding: 20px 30px;
+    color: rgba(4, 54, 61, 1);
+    font-family: Chivo;
+    font-weight: 400;
+    font-size: 15px;
+    text-decoration: none;
+    background-color: white;
+    display: block;
+
+    &:hover {
+      background-color: #1d5d65;
+      color: white;
+      border-radius: 3px;
+      transition: 1s ease-out;
+    }
+  }
+
+  .menu {
+    display: none;
     cursor: pointer;
 
-    ${tablets({display:"block"})}
+    ${tablets({ display: "block" })}
   }
- 
 
-  .icon{
+  .icon {
     display: flex;
     gap: 40px;
     color: rgba(4, 54, 61, 1);
     font-size: 20px;
-    align-items: center;
-      
   }
-
-  .shop-drop ul{
-    position: relative;
-    width: 100%;
-    padding: 0 10px;
-  }
-
-  .shop-drop:hover{
-  transition: 1s ease-out;
-  color: white;
-  background-color:#010c0d ;
-  border-radius: 3px;
-  
-}
-  .shop-drop img{
-    padding-left: 10px;
-    
-  }
-
-  .shop-drop:hover li .nb-dropdown{
-    display: grid;
-    top:35px;
-    transition: all 1s ease;
-    width: 100%;
-  }
- 
-
- li .nb-dropdown{
-  list-style: none;
-  padding: 0 30px;
-  color: rgba(4, 54, 61, 1);
-  font-family: Chivo;
-  font-weight: 400;
-  font-size: 15px;
-  text-decoration: none;
-  
- 
-}
-.nb-dropdown{
-  display: none;
-  position: absolute;
-  min-width: 150px;
-  height: 100%;
-  z-index: 100;
-  align-items: center;
-  background-color: white;
-  
-}
-
-.nb-dropdown-list{
-  list-style: none;
-  padding: 20px 30px;
-  color: rgba(4, 54, 61, 1);
-  font-family: Chivo;
-  font-weight: 400;
-  font-size: 15px;
-  text-decoration: none;
-  background-color: white;
- 
-  &:hover{
-  background-color:#1d5d65 ;
-  color: white;
-  border-radius: 3px;
-  transition: 1s ease-out;
-  
-}
-
-}
- 
-  `;
+`;
 
 export default Navbar

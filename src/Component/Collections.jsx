@@ -216,7 +216,7 @@ const Main = styled.div`
   opacity: 0.8;
 
  
-  ${mobile({fontSize: "14px"})}
+  ${mobile({fontSize: "16px"})}
  
 }
 button{
@@ -283,7 +283,7 @@ button{
     color: #4A5253;
 
     ${tablets({fontSize: "18px"})}
-    ${mobile({fontSize: "12px"})}
+    ${mobile({fontSize: "16px"})}
   }
   button{
       padding: 12px 80px;
